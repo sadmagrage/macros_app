@@ -7,7 +7,7 @@ import { darkTheme, lightTheme } from "./styles/themes";
 
 export default function App() {
 
-  const [theme, setTheme] = useState("dark");
+  const [theme] = useState("light");
 
   const currentTheme = theme === "light" ? lightTheme : darkTheme;
 
