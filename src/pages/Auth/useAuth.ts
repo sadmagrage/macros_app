@@ -1,5 +1,6 @@
 import { Axios } from "axios";
 import { useState } from "react";
+import type { TokenDto } from "./types";
 
 export function useAuth() {
      const API_URL = "http://localhost:8080";
@@ -15,7 +16,11 @@ export function useAuth() {
      const authenticate = async () => {
           const response = await axios.post("/auth/login", JSON.stringify({ username, password }), { headers: { "Content-Type": "application/json" } });
 
-          console.log(response);
+          let tokenDto: TokenDto;
+
+          if (response.status == 200) {
+               tokenDto = JSON.parse(response.data);
+          }
      };
 
      return {
