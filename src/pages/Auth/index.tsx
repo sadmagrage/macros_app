@@ -3,7 +3,7 @@ import { useAuth } from './useAuth';
 
 export default function Auth() {
 
-     const { username, password, setUsername, setPassword, onSend, authenticate } = useAuth();
+     const { username, password, setUsername, setPassword, onSend } = useAuth();
      
      return (
           <AuthContainer>
@@ -17,7 +17,7 @@ export default function Auth() {
                          <AuthLabel>Password</AuthLabel>
                          <AuthInputText type='password' value={ password } onChange={ e => setPassword(e.target.value) } />
                     </AuthFieldContainer>
-                    <AuthInputButton onClick={ authenticate } >Send</AuthInputButton>
+                    <AuthInputButton onClick={ onSend } >Send</AuthInputButton>
                </AuthForm>
           </AuthContainer>
      )
