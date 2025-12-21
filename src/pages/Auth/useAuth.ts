@@ -1,3 +1,4 @@
+import "./types";
 import { Axios } from "axios";
 import { useState } from "react";
 import type { TokenDto } from "./types";
@@ -9,23 +10,28 @@ export function useAuth() {
      const [ username, setUsername ] = useState("");
      const [ password, setPassword ] = useState("");
 
-     const onSend = () => {
-          console.log(`Username: ${ username }\nPassword: ${ password }`);
+     const onSend = async () => {
+          try {
+               const tokenDto = await authenticate();
+               
+               console.log(tokenDto.token);
+          } catch (error: any) {
+               console.error(error.message);
+          }
      };
 
-     const authenticate = async () => {
+     const authenticate = async (): Promise<TokenDto> => {
           const response = await axios.post("/auth/login", JSON.stringify({ username, password }), { headers: { "Content-Type": "application/json" } });
 
-          let tokenDto: TokenDto;
+          if (response.status == 403) throw new Error("Unauthorized");
+          else if (response.status != 200) throw new Error("Internal error");
 
-          if (response.status == 200) {
-               tokenDto = JSON.parse(response.data);
-          }
+          return JSON.parse(response.data);
      };
 
      return {
           username, setUsername,
           password, setPassword,
-          onSend, authenticate
+          onSend
      };
 }
