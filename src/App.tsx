@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import { darkTheme, lightTheme } from "./styles/themes";
+import { Toast } from "./components/Toast";
 
 export default function App() {
 
@@ -16,6 +17,7 @@ export default function App() {
       <BrowserRouter>
         <GlobalStyle />
         <AppRoutes />
+        <Toast />
       </BrowserRouter>
     </ThemeProvider>
   )
