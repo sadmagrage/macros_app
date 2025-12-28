@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 import { authenticate } from "../../modules/auth/services/auth.service";
 import AuthRequest from "../../modules/auth/dtos/requests/auth.request";
 import { useNavigate } from "react-router-dom";
+import type AuthResponse from "../../modules/auth/dtos/responses/auth.response";
+import { storeToken } from "../../modules/auth/utils/auth.utils";
 
 export function useAuth() {
 
@@ -18,9 +20,9 @@ export function useAuth() {
           try {
                const authReq: AuthRequest = new AuthRequest(username, password);
 
-               const { token } = await authenticate(authReq);
+               const authRes: AuthResponse = await authenticate(authReq);
 
-               localStorage.setItem("Authorization", token);
+               storeToken(authRes);
 
                toast.dismiss();
                toast.success("Successfully authenticated", { autoClose: 2000 });
