@@ -59,6 +59,36 @@ export const AuthInputText = styled.input`
     }
 `;
 
+export const AuthInputPasswordDiv = styled.div`
+    display: flex;
+    width: calc(100% - 5px);
+    height: 40px;
+    border-radius: 8px;
+    background-color: ${({ theme }) => theme.surfaceSecondary };
+    border: 1px solid ${({ theme }) => theme.borderLight };
+
+    &:focus {
+        border-color: ${({ theme }) => theme.primary };
+        box-shadow: 0 0 0 2px rgba(76,201,240,0.3);
+        outline: none;
+    }
+`;
+
+export const AuthInputPassword = styled.input`
+    width: calc(100% - 30px);
+    height: 40px;
+    padding: 5px 5px 5px 5px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-right: none;
+    color: ${({ theme }) => theme.textSecondary };
+    font-size: 15px;
+
+    &:focus {
+        outline: none;
+    }
+`;
+
 export const AuthInputButton = styled.button`
     width: 90%;
     background-color: ${({ theme }) => theme.primary };

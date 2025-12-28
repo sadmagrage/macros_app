@@ -8,7 +8,7 @@ import { Toast } from "./components/Toast";
 
 export default function App() {
 
-  const [theme] = useState("light");
+  const [theme] = useState("dark");
 
   const currentTheme = theme === "light" ? lightTheme : darkTheme;
 
