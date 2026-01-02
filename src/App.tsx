@@ -1,10 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./AppRoutes";
-import { GlobalStyle } from "./styles/GlobalStyle";
+import { GlobalStyle } from "./modules/core/design-system/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
-import { darkTheme, lightTheme } from "./styles/themes";
-import { Toast } from "./components/Toast";
+import { darkTheme, lightTheme } from "./modules/core/design-system/theme";
+import { Toast } from "./modules/core/design-system/Toast";
 
 export default function App() {
 
