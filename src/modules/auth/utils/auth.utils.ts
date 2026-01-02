@@ -1,4 +1,4 @@
-import type AuthResponse from "../dtos/responses/auth.response";
+import type AuthResponse from "../lib/dtos/responses/auth.response";
 import { jwtDecode, type JwtPayload } from "jwt-decode";
 
 const AUTH_TOKEN_KEY: string = "auth_token";

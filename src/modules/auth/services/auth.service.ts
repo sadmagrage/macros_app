@@ -1,9 +1,9 @@
-import axios from "../../../infra/http/api";
+import axios from "../../core/lib/http/api";
 
-import UnexpectedResponseError from "../../../infra/http/errors/UnexpectedResponseError";
+import UnexpectedResponseError from "../../core/lib/http/errors/UnexpectedResponseError";
 import type { AxiosResponse } from "axios";
-import type AuthResponse from "../dtos/responses/auth.response";
-import type AuthRequest from "../dtos/requests/auth.request";
+import type AuthResponse from "../lib/dtos/responses/auth.response";
+import type AuthRequest from "../lib/dtos/requests/auth.request";
 
 export const authenticate = async (authReq: AuthRequest): Promise<AuthResponse> => {
      try {
