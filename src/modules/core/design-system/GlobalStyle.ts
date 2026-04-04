@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
           box-sizing: border-box;
      }
      body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
           background-color: #f9f9f9;
           color: #333;
      }
